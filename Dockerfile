@@ -11,7 +11,9 @@ RUN mkdir -p /var/run/sshd
 RUN apt-get install -y apache2
 RUN mkdir -p /var/lock/apache2 /var/run/apache2
 
-RUN apt-get install -y php5 libapache2-mod-php5
+RUN apt-get install -y php5 libapache2-mod-php5 php5-cli php5-dev php5-mysql php5-xmlrpc php5-curl php5-gd php-apc php-pear php5-imap php5-mcrypt php5-pspell
+
+RUN a2enmod rewrite
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY config /config
