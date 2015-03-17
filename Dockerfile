@@ -16,9 +16,9 @@ RUN apt-get install -y php5 libapache2-mod-php5 php5-cli php5-dev php5-mysql php
 RUN a2enmod rewrite
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY config /config
 COPY sudoers /etc/sudoers
 
 EXPOSE 22 80
 CMD ["/usr/bin/supervisord"]
-
