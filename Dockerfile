@@ -24,5 +24,7 @@ COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY config /config
 COPY sudoers /etc/sudoers
 
+ENV WEBSERVER_DOCUMENT_ROOT /
+
 EXPOSE 22 80
 CMD ["/run.sh"]
