@@ -1,0 +1,16 @@
+---
+machine:
+  services:
+    - docker
+dependencies:
+  pre:
+    - docker info
+    - test/clone_samplecode.sh
+test:
+  override:
+    - test/test.sh
+deployment:
+  release:
+    branch: master
+    commands:
+      - test/push_image_to_hub.sh
