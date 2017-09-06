@@ -4,6 +4,7 @@ set -e
 cd `dirname $0`
 
 echo "FROM ci/base" >> Dockerfile
+echo "RUN rm -f /var/www/html/index.html" >> Dockerfile
 echo "ADD code /var/www/html" >> Dockerfile
 
 docker build -t ci/base -f ../Dockerfile ../
