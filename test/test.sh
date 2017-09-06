@@ -4,7 +4,7 @@ set -e
 cd `dirname $0`
 
 echo "FROM ci/base" >> Dockerfile
-echo "ADD code /srv/code" >> Dockerfile
+echo "ADD code /var/www/html" >> Dockerfile
 
 docker build -t ci/base -f ../Dockerfile ../
 docker build -t ci/test -f Dockerfile .
